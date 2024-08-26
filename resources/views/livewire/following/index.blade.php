@@ -15,7 +15,7 @@
             <section class="mt-10 max-w-2xl max-h-96 overflow-y-auto">
                 <ul class="flex flex-col gap-2">
                     @foreach ($following as $followingUser)
-                        <li>
+                        <li class="relative">
                             <a
                                 href="{{ route('profile.show', ['username' => $followingUser->username]) }}"
                                 class="group flex items-center gap-3 rounded-2xl border border-slate-900 bg-slate-950 bg-opacity-80 p-4 transition-colors hover:bg-slate-900"
@@ -56,6 +56,12 @@
                                     </p>
                                 </div>
                             </a>
+                            <x-follow-button
+                                :id="$followingUser->id"
+                                :isFollower="$followingUser->is_follower"
+                                :isFollowing="$user->is(auth()->user()) || $followingUser->is_following"
+                                class="absolute right-2 z-10 top-2 transform"
+                            />
                         </li>
                     @endforeach
                 </ul>
