@@ -43,7 +43,7 @@
                                     wire:navigate
                                     x-ref="parentLink"
                                 >
-                                    <p class="truncate font-medium">
+                                    <p class="text-wrap text-left font-medium">
                                         {{ $user->name }}
                                     </p>
 

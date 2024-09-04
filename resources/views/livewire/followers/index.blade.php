@@ -35,7 +35,7 @@
                                         wire:navigate
                                         x-ref="parentLink"
                                     >
-                                        <p class="text-wrap font-medium">
+                                        <p class="text-wrap text-left font-medium">
                                             {{ $follower->name }}
                                         </p>
 
