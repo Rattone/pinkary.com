@@ -28,7 +28,7 @@
             data-navigate-ignore="true"
             type="button"
             x-on:click="toggleFollow()"
-            class="text-xs md:text-sm"
+            class="text-xs md:text-sm text-nowrap"
         >
             <span x-text='buttonText' :title='buttonText' ></span>
         </x-secondary-button>
