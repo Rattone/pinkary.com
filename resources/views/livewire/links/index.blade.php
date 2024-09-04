@@ -178,8 +178,7 @@
                 @endif
 
                 @if ($user->following_count > 0)
-                    <button x-on:click.prevent="$dispatch('open-modal', 'following')"
-                    >
+                    <button x-on:click.prevent="$dispatch('open-modal', 'following')">
                         <span
                             class="cursor-help"
                             title="{{ Number::format($user->following_count) }} Following"

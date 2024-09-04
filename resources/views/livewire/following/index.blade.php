@@ -28,14 +28,14 @@
                                     alt="{{ $followingUser->username }}"
                                     />
                                 </figure>
-                                <div class="flex flex-col overflow-hidden text-sm">
+                                <div class="flex flex-col overflow-hidden text-sm text-left">
                                     <a
                                         class="flex items-center space-x-2"
                                         href="{{ route('profile.show', ['username' => $followingUser->username]) }}"
                                         wire:navigate
                                         x-ref="parentLink"
                                     >
-                                        <p class="text-wrap text-left font-medium">
+                                        <p class="text-wrap truncate font-medium">
                                             {{ $followingUser->name }}
                                         </p>
 
