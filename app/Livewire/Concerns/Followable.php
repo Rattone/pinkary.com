@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Concerns;
 
 use App\Models\User;
-use Illuminate\Support\Number;
 use Livewire\Attributes\Renderless;
 
 trait Followable
@@ -26,11 +25,7 @@ trait Followable
         $user->following()->attach($id);
 
         if ($this->shouldHandleFollowingCount()) {
-            $followingCount = $user->following()->count();
-            $this->dispatch('following.updated',
-                followingCount: $followingCount,
-                abbrFollowingCount: Number::abbreviate($followingCount),
-            );
+            $this->dispatch('following.updated');
         }
 
         $this->dispatch('user.followed', id: $id);
@@ -52,11 +47,7 @@ trait Followable
         $user->following()->detach($id);
 
         if ($this->shouldHandleFollowingCount()) {
-            $followingCount = $user->following()->count();
-            $this->dispatch('following.updated',
-                followingCount: $followingCount,
-                abbrFollowingCount: Number::abbreviate($followingCount),
-            );
+            $this->dispatch('following.updated');
         }
 
         $this->dispatch('user.unfollowed', id: $id);

@@ -19,10 +19,7 @@ it('follows the given user', function () {
 
     expect($user->following->contains($anotherUser))->toBeTrue();
 
-    $component->assertDispatched('following.updated',
-        followingCount: 1,
-        abbrFollowingCount: '1',
-    );
+    $component->assertDispatched('following.updated');
 
     $component->assertDispatched('user.followed',
         id: $anotherUser->id,
@@ -42,10 +39,7 @@ it('unfollows the given user', function () {
 
     expect($user->following->contains($anotherUser))->toBeFalse();
 
-    $component->assertDispatched('following.updated',
-        followingCount: 0,
-        abbrFollowingCount: '0',
-    );
+    $component->assertDispatched('following.updated');
 
     $component->assertDispatched('user.unfollowed',
         id: $anotherUser->id,
